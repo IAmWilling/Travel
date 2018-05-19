@@ -6,20 +6,28 @@
       <div class="hander-input"><span class="iconfont">&#xe632;输入城市/景点/游玩主题</span>
 
       </div>
-      <div class="hander-right">城市
+      <router-link to="/city">
+      <div class="hander-right">{{this.$store.state.city}}
           <span class="iconfont arrow-icon">&#xe8c3;</span>
       </div>
+      </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HomeHander"
+  name: "HomeHander",
+  props: {
+    city: {
+      type: String
+    }
+  }
 };
 </script>
 
 <style lang="stylus" scoped>
-@import "../assets/bgcolor.styl";       //引入全局变量背景色
+@import '../assets/bgcolor.styl'; // 引入全局变量背景色
+
 .hander {
     display: flex;
     background: $bgColr;
@@ -50,12 +58,14 @@ export default {
     margin-left: 0.5rem;
     text-align: center;
     float: right;
-    width: 3rem;
+
+    color: #fff;
 }
 
 .arrow-icon {
     font-size: 0.24rem;
 }
+
 </style>
 
 
